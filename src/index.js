@@ -1,17 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import {choice, remove} from './helpers';
+import foods from './foods'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let food = choice(foods)
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+console.log(`I'd like one ${food}, please`)
+console.log(`Here you go: ${food}`)
+console.log(`Delicious! May I have another?`)
+
+let remaining = remove(foods, food)
+
+console.log(`I'm sorry, we're all out. We have ${remaining.length} left.`)
